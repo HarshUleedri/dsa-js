@@ -22,7 +22,7 @@ function moveAllZeroToEnd(arr) {
 
 // optimize solution
 //  time complexity O(n) space compexity O(1)
-const arr1 = [0, 0, 3, 5, 0, 7, 0, 12, 13];
+const arr1 = [1, 0, 3, 5, 0, 7, 0, 12, 13];
 
 function moveZero(arr) {
   let j = 0;
@@ -30,6 +30,8 @@ function moveZero(arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== 0) {
       [arr[i], arr[j]] = [arr[j], arr[i]];
+    //[arr[0], arr[0]] = [1,1]   const arr1 = [1, 0, 3, 5, 0, 7, 0, 12, 13];
+    // [arr[2], arr[1]]= [0, 3]  const arr1 = [1, 3, 0, 5, 0, 7, 0, 12, 13];
       j++;
     }
   }
