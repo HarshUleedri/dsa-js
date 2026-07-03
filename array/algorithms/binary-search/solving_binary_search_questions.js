@@ -38,3 +38,16 @@ function findLastAccurence(arr, target) {
 }
 
 console.log(findLastAccurence(arr3, target3));
+
+function findAccurence(arr, target) {
+  const accrence = [];
+
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === target) {
+      accrence.push(arr[i]);
+    }
+  }
+  return accrence.length;
+}
+
+console.log(findAccurence(arr3, target3));
