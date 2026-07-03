@@ -25,3 +25,16 @@ function findFirstAccurence(arr, target) {
 }
 
 console.log(findFirstAccurence(arr2, target2));
+
+const arr3 = [1, 2, 2, 2, 3, 4];
+const target3 = 2;
+function findLastAccurence(arr, target) {
+  for (i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] === target) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(findLastAccurence(arr3, target3));
