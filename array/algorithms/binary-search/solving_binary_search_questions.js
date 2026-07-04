@@ -68,12 +68,13 @@ const target5 = 25;
 function findTarget(arr, target) {
   let left = 0;
   let right = arr.length - 1;
-
+  let itration = 0;
   while (left <= right) {
+    itration++;
     const middle = Math.floor((left + right) / 2);
 
-    if ((arr[middle] === target)) {
-      return middle;
+    if (arr[middle] === target) {
+      return { middle, itration };
     }
 
     if (target > arr[middle]) {
@@ -83,7 +84,34 @@ function findTarget(arr, target) {
     }
   }
 
-  return -1;
+  return { result: -1, itration };
 }
 
 console.log(findTarget(arr5, target5));
+console.log(findTarget([1, 3, 5, 7, 9, 11], 5));
+console.log(findTarget([10, 20, 30, 40, 50], 60));
+console.log(findTarget([], 60));
+
+function firstAccWithBS(arr, target) {
+  let first = 0;
+  let last = arr.length - 1;
+  let ans = -1;
+
+  while (first <= last) {
+    const middle = Math.floor((first + last) / 2);
+
+    if (arr[middle] === target) {
+      ans = middle;
+      last = middle - 1;
+    } else if (arr[middle] < target) {
+      first = middle + 1;
+    } else {
+      last = middle - 1;
+    }
+  }
+
+  return ans;
+}
+
+console.log(firstAccWithBS([2, 4, 4, 4, 6, 8], 4));
+
