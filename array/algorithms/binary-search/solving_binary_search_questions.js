@@ -115,3 +115,42 @@ function firstAccWithBS(arr, target) {
 
 console.log(firstAccWithBS([2, 4, 4, 4, 6, 8], 4));
 
+function lastAccWithBs(arr, target) {
+  let first = 0;
+  let last = arr.length - 1;
+  let ans = -1;
+
+  while (first <= last) {
+    const middle = Math.floor((first + last) / 2);
+    if (arr[middle] === target) {
+      ans = middle;
+      first = middle + 1;
+    } else if (arr[middle] < target) {
+      first = middle + 1;
+    } else {
+      last = middle - 1;
+    }
+  }
+  return ans;
+}
+
+console.log(lastAccWithBs([2, 4, 4, 4, 6, 8], 4));
+
+function findTheInsertionIndex(arr, target) {
+  let first = 0;
+  let last = arr.length - 1;
+  let ans = -1;
+
+  while (first <= last) {
+    const middle = Math.floor((first + last) / 2);
+    if (arr[middle] === target) {
+      return middle;
+    } else if (arr[middle] < target) {
+      first = middle + 1;
+    } else {
+      last = middle - 1;
+    }
+  }
+  return first;
+}
+console.log(findTheInsertionIndex([1, 3, 5, 6], 5));
