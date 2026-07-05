@@ -154,3 +154,15 @@ function findTheInsertionIndex(arr, target) {
   return first;
 }
 console.log(findTheInsertionIndex([1, 3, 5, 6], 5));
+
+function currentOccurrence(arr, target) {
+  const first = firstAccWithBS(arr, target);
+
+  if (first === -1) return 0;
+
+  const last = lastAccWithBs(arr, target);
+
+  return last - first + 1;
+}
+
+console.log(currentOccurrence([2, 4, 4, 4, 6, 8], 4)); // 3
