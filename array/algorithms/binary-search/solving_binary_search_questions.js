@@ -166,3 +166,23 @@ function currentOccurrence(arr, target) {
 }
 
 console.log(currentOccurrence([2, 4, 4, 4, 6, 8], 4)); // 3
+
+function floorElement(arr, target) {
+  let first = 0;
+  let last = arr.length - 1;
+  let ans = -1;
+  while (first <= last) {
+    const mid = Math.floor((first + last) / 2);
+    if (arr[mid] <= target) {
+      ans = arr[mid];
+      first = mid + 1;
+    } else if (arr[mid] < target) {
+      first = mid + 1;
+    } else {
+      last = mid - 1;
+    }
+  }
+  return ans;
+}
+
+console.log(floorElement([2, 4, 6, 8, 10], 7));
