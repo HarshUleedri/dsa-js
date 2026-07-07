@@ -207,3 +207,20 @@ function ceilingElement(arr, target) {
 }
 
 console.log(ceilingElement([2, 4, 6, 8, 10], 7));
+
+function findPeakElement(arr) {
+  let first = 0;
+  let last = arr.length - 1;
+
+  while (first < last) {
+    const mid = Math.floor((first + last) / 2);
+    if (arr[mid] < arr[mid + 1]) {
+      first = mid + 1;
+    } else {
+      last = mid;
+    }
+  }
+  return arr[first];
+}
+
+console.log(findPeakElement([1, 3, 7, 6, 4]));
