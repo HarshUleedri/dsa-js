@@ -254,29 +254,16 @@ console.log(searchInRotatedArr([40, 50, 60, 70, 10, 20, 30], 20));
 function findMinmumInRotated(arr) {
   let first = 0;
   let last = arr.length - 1;
-  let min = arr[0];
   while (first < last) {
     const mid = Math.floor((first + last) / 2);
-    if (arr[mid] < min) {
-      min = arr[mid];
-    }
-
-    if (arr[first] <= arr[mid]) {
-      if (arr[mid] < min) {
-        last = mid - 1;
-      } else {
-        first = mid + 1;
-      }
+    if (arr[mid] > arr[last]) {
+      first = mid + 1;
     } else {
-      if (arr[mid] < min) {
-        last = mid - 1;
-      } else {
-        first = mid + 1;
-      }
+      last = mid;
     }
   }
 
-  return min;
+  return arr[first];
 }
 
-console.log(findMinmumInRotated([30, 40, 50, 20]), "harsh");
+console.log(findMinmumInRotated([30, 40, 50, 5, 10, 20]));
