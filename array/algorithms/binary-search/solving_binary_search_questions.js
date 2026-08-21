@@ -176,8 +176,6 @@ function floorElement(arr, target) {
     if (arr[mid] <= target) {
       ans = arr[mid];
       first = mid + 1;
-    } else if (arr[mid] < target) {
-      first = mid + 1;
     } else {
       last = mid - 1;
     }
