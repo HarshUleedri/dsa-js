@@ -318,3 +318,17 @@ console.log(
   Object.getOwnPropertyNames(newObject),
   "with non-enumerable property",
 );
+
+// reverse the string
+
+const str = "harsh";
+
+console.log(str.split("").reverse().join(""));
+
+let reverseString = "";
+
+for (let i = str.length - 1; i >= 0; i--) {
+  reverseString += str[i];
+}
+
+console.log(reverseString);
