@@ -342,3 +342,44 @@ function checkPalindrome(str) {
 
 console.log(checkPalindrome("mjadam"));
 
+const dupNumbers = [1, 2, 2, 3, 1, 2];
+
+function countApperance() {
+  const obj = {};
+  for (let val of dupNumbers) {
+    obj[val] = obj[val] ? obj[val] + 1 : 1;
+  }
+
+  return obj;
+}
+
+console.log(countApperance(dupNumbers));
+
+///missing number
+
+function missingNumber(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== i + 1) {
+      return i + 1;
+    }
+  }
+  return arr.length + 1;
+}
+
+console.log(missingNumber([1, 2, 3, 5, 6]));
+
+// count vowels
+
+function countVowels(str) {
+  let count = 0;
+  const vowels = ["a", "e", "i", "o", "u"];
+
+  for (let val of str) {
+    if (vowels.includes(val)) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countVowels("javascript"));
