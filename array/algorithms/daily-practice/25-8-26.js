@@ -61,3 +61,23 @@ function optiFlatten(arr) {
 
 console.log(optiFlatten(arr3), "opti flatten array");
 
+//remove duplicate
+const arr4 = [1, 2, 2, 3, 4, 4, 5];
+
+const arrSet = new Set(arr4);
+
+console.log(arrSet);
+
+//without using Set
+
+function removeDuplicateElements(arr) {
+  const result = [];
+  for (let el of arr) {
+    if (!result.includes(el)) {
+      result.push(el);
+    }
+  }
+  return result;
+}
+
+console.log(removeDuplicateElements(arr4), "removed duplicate");
