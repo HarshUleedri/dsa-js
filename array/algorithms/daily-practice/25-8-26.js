@@ -162,3 +162,54 @@ const newObj = deepFreeze(obj);
 newObj.address.city = "navi mumbai";
 
 console.log(newObj, "deep freezer");
+
+function createCloneObj(obj) {
+  const newObj = JSON.parse(JSON.stringify(obj));
+  return newObj;
+}
+
+const clonedObj = createCloneObj(obj);
+clonedObj.name = "harsh uleedri";
+
+console.log(obj, clonedObj);
+
+// merge 2 object without object.asign and spread operator
+
+function deepMerge(obj1, obj2) {
+  let result = {};
+
+  for (let el in obj1) {
+    result[el] = obj1[el];
+  }
+
+  for (let el in obj2) {
+    if (
+      typeof result[el] === "object" &&
+      result[el] !== null &&
+      typeof obj2[el] === "object" &&
+      obj2[el] !== null
+    ) {
+      result[el] = deepMerge(result[el], obj2[el]);
+    } else {
+      result[el] = obj2[el];
+    }
+  }
+  return result;
+}
+console.log(
+  deepMerge(
+    {
+      name: "John",
+      address: {
+        city: "Mumbai",
+        pin: 400001,
+      },
+    },
+    {
+      age: 25,
+      address: {
+        city: "Delhi",
+      },
+    },
+  ),
+);
