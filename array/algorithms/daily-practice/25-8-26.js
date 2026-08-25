@@ -81,3 +81,53 @@ function removeDuplicateElements(arr) {
 }
 
 console.log(removeDuplicateElements(arr4), "removed duplicate");
+
+// find the second largest element
+
+const arr5 = [10, 5, 20, 8];
+
+function findSecondLargest(arr) {
+  const sort = arr.sort((a, b) => a - b);
+  return sort[sort.length - 2];
+}
+
+console.log(findSecondLargest(arr5), "second largest");
+
+//optimized way
+
+function optimizeFindSecondLargest(arr) {
+  let largest = -Infinity;
+  let second = -Infinity;
+
+  for (let el of arr) {
+    if (el > largest) {
+      second = largest;
+      largest = el;
+    } else if (el < largest && el > second) {
+      second = el;
+    }
+  }
+  return { largest, second };
+}
+
+console.log(
+  optimizeFindSecondLargest(arr5),
+  "optimize way for finding second largest ",
+);
+
+// find the intersection in both array
+
+function findTheIntersection(arr1, arr2) {
+  const result = [];
+
+  for (let el of arr1) {
+    if (arr2.includes(el)) {
+      result.push(el);
+    }
+  }
+
+  return result;
+}
+
+console.log(findTheIntersection([1, 2, 3], [2, 3, 4]), "intersection");
+
