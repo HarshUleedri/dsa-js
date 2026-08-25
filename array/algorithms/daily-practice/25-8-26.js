@@ -230,6 +230,27 @@ function getEntries(obj) {
   return result;
 }
 
-console.log(getEntries(obj3),"result");
+console.log(getEntries(obj3), "result");
 console.log(Object.entries(obj3), "for testing");
 
+// return all keys with the number values only
+
+function getNumberValuedKey(obj) {
+  const result = [];
+
+  for (let key in obj) {
+    if (typeof obj[key] === "number") {
+      result.push(key);
+    }
+  }
+  return result;
+}
+console.log(
+  getNumberValuedKey({
+    name: "John",
+    age: 25,
+    salary: 50000,
+    city: "Mumbai",
+    isActive: true,
+  }),
+);
