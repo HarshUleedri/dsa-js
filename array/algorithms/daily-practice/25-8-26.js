@@ -131,3 +131,34 @@ function findTheIntersection(arr1, arr2) {
 
 console.log(findTheIntersection([1, 2, 3], [2, 3, 4]), "intersection");
 
+/// deepfreeze the object
+
+const obj = {
+  name: "John",
+  address: {
+    city: "Mumbai",
+    location: {
+      country: "India",
+    },
+  },
+};
+
+function deepFreeze(obj) {
+  Object.freeze(obj);
+
+  for (let val of Object.keys(obj)) {
+    if (
+      typeof obj[val] === "object" &&
+      obj[val] !== null &&
+      !Object.isFrozen(obj[val])
+    ) {
+      deepFreeze(obj[val]);
+    }
+  }
+  return obj;
+}
+const newObj = deepFreeze(obj);
+
+newObj.address.city = "navi mumbai";
+
+console.log(newObj, "deep freezer");
