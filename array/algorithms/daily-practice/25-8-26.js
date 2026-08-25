@@ -254,3 +254,67 @@ console.log(
     isActive: true,
   }),
 );
+
+// remove all null and undefined properties
+
+function cleanObject(obj) {
+  const result = {};
+
+  for (let key in obj) {
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      result[key] = cleanObject(obj[key]);
+    } else if (obj[key] !== null && obj[key] !== undefined) {
+      result[key] = obj[key];
+    }
+  }
+  return result;
+}
+
+console.log(
+  cleanObject({
+    name: "John",
+    page: null,
+    address: {
+      city: "Mumbai",
+      pin: null,
+      landmark: {
+        loc: null,
+        base: "cap",
+      },
+    },
+  }),
+);
+
+/// invert keys and values of an objects
+
+function invertKeysAndValues(obj) {
+  const result = {};
+
+  for (let key in obj) {
+    const val = obj[key];
+    result[val] = key;
+  }
+
+  return result;
+}
+
+console.log(invertKeysAndValues({ a: 1, b: 2 }));
+
+const newObject = { name: "Harsh Uleedri" };
+
+Object.defineProperty(newObject, "age", {
+  value: 24,
+  enumerable: false,
+});
+
+console.log(newObject);
+
+const arrReturn = Object.keys(newObject);
+console.log(arrReturn, "with out non-enumerable property");
+for (let key in arrReturn) {
+  console.log(key, "with out non-enumerable property");
+}
+console.log(
+  Object.getOwnPropertyNames(newObject),
+  "with non-enumerable property",
+);
