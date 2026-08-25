@@ -213,3 +213,23 @@ console.log(
     },
   ),
 );
+
+/// create a function which behave like Object.entries()
+
+const obj3 = {
+  name: "Harsh Uleedri",
+  age: 24,
+};
+
+function getEntries(obj) {
+  const result = [];
+
+  for (let key in obj) {
+    result.push([key, obj[key]]);
+  }
+  return result;
+}
+
+console.log(getEntries(obj3),"result");
+console.log(Object.entries(obj3), "for testing");
+
