@@ -332,3 +332,13 @@ for (let i = str.length - 1; i >= 0; i--) {
 }
 
 console.log(reverseString);
+
+// palendrome question
+
+function checkPalindrome(str) {
+  const reverse = str.toLowerCase().split("").reverse().join("");
+  return str.toLowerCase() === reverse;
+}
+
+console.log(checkPalindrome("mjadam"));
+
