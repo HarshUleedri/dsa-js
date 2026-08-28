@@ -448,5 +448,14 @@ function findIntersection(arr1, arr2) {
 }
 console.log(commonElement([1, 2, 2, 3, 4, 5], [2, 2, 4, 6, 7]));
 
+function createUnion(arr1, arr2) {
+  const set = new Set(arr1);
 
+  for (let el of arr2) {
+    set.add(el);
+  }
 
+  return [...set];
+}
+
+console.log(createUnion([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]));
