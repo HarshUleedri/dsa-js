@@ -416,3 +416,21 @@ function findMissingNumber(arr) {
 }
 
 console.log(findMissingNumber(arr7));
+
+const arr8 = [1, 2, 3, 4, 5, 6];
+const arr9 = [4, 5, 6, 7, 8, 9];
+
+function commonElement(arr1, arr2) {
+  const set = new Set(arr2)
+  const commanArr = new Set();
+
+  for (let el of arr1) {
+    if (set.has(el)) {
+      commanArr.add(el);
+    }
+  }
+  return [...commanArr];
+}
+
+
+console.log(commonElement(arr8, arr9))
