@@ -383,3 +383,21 @@ function countVowels(str) {
 }
 
 console.log(countVowels("javascript"));
+
+let arr6 = [1, 2, 3, 4, 2, 5, 6, 3, 7, 2];
+
+function findDuplicate(arr) {
+  const newArr = [];
+  const result = [];
+
+  for (let el of arr) {
+    if (newArr.includes(el)) {
+      result.push(el);
+    } else {
+      newArr.push(el);
+    }
+  }
+  return result
+}
+
+console.log(findDuplicate(arr6));
