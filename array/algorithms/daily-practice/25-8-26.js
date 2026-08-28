@@ -421,7 +421,7 @@ const arr8 = [1, 2, 3, 4, 5, 6];
 const arr9 = [4, 5, 6, 7, 8, 9];
 
 function commonElement(arr1, arr2) {
-  const set = new Set(arr2)
+  const set = new Set(arr2);
   const commanArr = new Set();
 
   for (let el of arr1) {
@@ -432,5 +432,21 @@ function commonElement(arr1, arr2) {
   return [...commanArr];
 }
 
+console.log(commonElement(arr8, arr9));
 
-console.log(commonElement(arr8, arr9))
+function findIntersection(arr1, arr2) {
+  const set = new Set(arr1);
+
+  const result = new Set();
+
+  for (let el of arr2) {
+    if (set.has(el)) {
+      result.add(el);
+    }
+  }
+  return [...result];
+}
+console.log(commonElement([1, 2, 2, 3, 4, 5], [2, 2, 4, 6, 7]));
+
+
+
