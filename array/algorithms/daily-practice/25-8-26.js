@@ -387,17 +387,32 @@ console.log(countVowels("javascript"));
 let arr6 = [1, 2, 3, 4, 2, 5, 6, 3, 7, 2];
 
 function findDuplicate(arr) {
-  const newArr = [];
-  const result = [];
+  const newArr = new Set();
+  const result = new Set();
 
   for (let el of arr) {
-    if (newArr.includes(el)) {
-      result.push(el);
+    if (newArr.has(el)) {
+      result.add(el);
     } else {
-      newArr.push(el);
+      newArr.add(el);
     }
   }
-  return result
+  return [...result];
 }
 
 console.log(findDuplicate(arr6));
+
+const arr7 = [1, 2, 4, 5, 7];
+
+function findMissingNumber(arr) {
+  const result = [];
+
+  for (let i = 0; i < Math.max(...arr); i++) {
+    if (!arr.includes(i + 1)) {
+      result.push(i + 1);
+    }
+  }
+  return result;
+}
+
+console.log(findMissingNumber(arr7));
