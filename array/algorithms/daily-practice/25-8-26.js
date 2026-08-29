@@ -461,12 +461,10 @@ function createUnion(arr1, arr2) {
 console.log(createUnion([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]));
 
 function sortArry(arr) {
-  let temp;
-
   for (let i = 0; i < arr.length - 1; i++) {
     for (let j = 0; j < arr.length - 1 - i; j++)
       if (arr[j] >= arr[j + 1]) {
-        temp = arr[j];
+        let temp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = temp;
       }
@@ -476,3 +474,37 @@ function sortArry(arr) {
 }
 
 console.log(sortArry([2, 1, 3, 5, 6, 4]));
+
+function checkAnagrams(str1, str2) {
+  for (let str of str2) {
+    if (!str1.includes(str)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(checkAnagrams("hello", "hh"));
+console.log(checkAnagrams("race", "care"));
+
+function optimizeAnagramCheck(str1, str2) {
+  if (str1.length !== str2.length) return false;
+
+  const count = {};
+
+  for (let char of str1) {
+    count[char] = (count[char] || 0) + 1;
+  }
+
+  for (let char of str2) {
+    if (!count[char]) {
+      return false;
+    }
+    count[char]--;
+  }
+
+  return true;
+}
+
+console.log(optimizeAnagramCheck("hello", "hhhh"));
+console.log(optimizeAnagramCheck("race", "care"));
