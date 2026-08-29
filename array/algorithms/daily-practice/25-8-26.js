@@ -508,3 +508,21 @@ function optimizeAnagramCheck(str1, str2) {
 
 console.log(optimizeAnagramCheck("hello", "hhhh"));
 console.log(optimizeAnagramCheck("race", "care"));
+
+function findFirstNonRepeating(string) {
+  const str = string.toLowerCase();
+  const count = {};
+
+  for (let char of str) {
+    count[char] = (count[char] || 0) + 1;
+  }
+
+  for (let char of str) {
+    if (count[char] === 1) {
+      return char;
+    }
+  }
+  return -1;
+}
+
+console.log(findFirstNonRepeating("Harsh"));
