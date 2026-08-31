@@ -541,3 +541,20 @@ function sortthenumber(arr) {
 }
 
 console.log(sortthenumber([3, 4, 1, 5, 7, 9, 2]));
+
+function nonReapeating(str) {
+  const count = {};
+
+  for (let char of str) {
+    count[char] = (count[char] || 0) + 1;
+  }
+
+  for (let char in count) {
+    if (count[char] === 1) {
+      return char;
+    }
+  }
+  return -1;
+}
+
+console.log(nonReapeating("harsh"));
