@@ -558,3 +558,16 @@ function nonReapeating(str) {
 }
 
 console.log(nonReapeating("harsh"));
+
+function MissingNumber(arr) {
+  const result = [];
+
+  for (let i = 0; i < Math.max(...arr); i++) {
+    if (!arr.includes(i + 1)) {
+      result.push(i + 1);
+    }
+  }
+  return result;
+}
+
+console.log(findMissingNumber([1, 3, 4, 5, 6]));
